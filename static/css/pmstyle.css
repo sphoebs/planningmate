@@ -280,21 +280,41 @@ left: 25%;
 
 footer {
 background:url('/static/images/footer-texture.jpg')	;
-
 	min-height: 6em;
-	background-color: grey;
 	color:white;
+        flex-flow: row;
+    justify-content: center; 
+
+    
+}
+
+.footercontent {
+   display: flex;
+    flex-flow: column;
+    justify-content:center;
+    width: 60%;
+    margin-left:40%;
+}
+.footermenu {
+width:40%;
+}
+
+.footermenu div {
+display: flex;
+    flex-flow: row;
+    justify-content: center;
+    
+}
+
+.social_links {
+    width:40%;   
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-top:2em;
 }
 
 
-.footermenu li {
-display: inline;
-padding-right: 1em;
-}
 
-footer div {
-padding-top: 2em;
-margin-left: 40%	;	
-}
 
 
