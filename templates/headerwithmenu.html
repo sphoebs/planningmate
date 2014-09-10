@@ -1,21 +1,21 @@
-
+<link rel="stylesheet" href="/static/css/menu.css">
 
 
   <nav>
-    <div id="types_menu">
+    <div class="menu">
     
     {% if destination %}
-        <ul>
+       
           	{% for type in provider_types %}
-           	 <li><a href="/destination?provider_type={{ type }}&destination={{destination}}">{{ type }}</a></li>
+           	 <div class="menuitem"><a href="/destination?provider_type={{ type }}&destination={{destination}}">{{ type }}</a></div>
         	{% endfor %} 
-        
-		</ul>
+
      {% endif %}   
         
      </div>
       
-	  <div id="login_menu" class="ddown">
+      <div id="login_lang_menu" class="menu">
+          <div id="login_menu" class="menu ddown">
             {% if user %} 
              {{ user.first_name }} &#x25bc;
             
@@ -33,22 +33,25 @@
             </ul>
 
             {% else %} 
-           	 <a href="{{login_url}}"> google login</a><br>
+           	 <a href="{{login_url}}"> Google Login</a><br>
             {% endif %}
     
     </div>
     
-    <div id="language_menu" class="ddown">
-    {{selected_language}} &#x25bc;
-        <ul> 
-        	{% if other_languages %}
-                {% for other_language in other_languages %}
-                 <li onClick="reload_with_new_par('{{ other_language }}')" >{{ other_language }}</li>
-                {% endfor %}
-            {% endif %}
-        </ul>
-    </div>
-
+        <div id="language_menu" class="ddown">{% filter upper %}
+        {{selected_language}} {% endfilter %}
+            <ul> 
+                {% if other_languages %}
+                    {% for other_language in other_languages %}
+                     <li onClick="reload_with_new_par('{{ other_language }}')" >{{ other_language }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+</div>
+      
+      
+      
 <script>
 function reload_with_new_par(l) {
 	var url = window.location.href;

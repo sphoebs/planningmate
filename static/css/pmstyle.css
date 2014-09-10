@@ -43,57 +43,6 @@ header {
 
 /* menus*/
 
-.menu li {
-list-style: none;	
-}
-
-
-
-nav ul {
-	list-style: none;
-	margin: 0; 
-    padding: 0;
-}
-
-nav li {
-	list-style: none;
-	float: left;	
-	margin-right: 2em;
-}
-
-#login_menu {
-	float:right;
-	margin-right: 2em;
-	width: 8em;
-	text-align:right;
-}
-
-#language_menu {
-	float:right;
-	margin-right: 2em;
-	display: inline;
-	width:3em;	
-}
-
-.ddown ul li {
-	display: none;
-	float:right;
-	margin-right: 1em;
-	clear:both;
-}
-
-.ddown:hover  {
-	background-color:white;	
-}
-
-.ddown:hover li {
-	display: block;	
-}
-
-.ddown li:hover {
-	background-color: #3FE6F2;
-}
-
 
 /* landing */
 #landing_body {
