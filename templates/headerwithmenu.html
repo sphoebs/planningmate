@@ -7,7 +7,7 @@
     {% if destination %}
        
           	{% for type in provider_types %}
-           	 <div class="menuitem"><a href="/destination?provider_type={{ type }}&destination={{destination}}">{{ type }}</a></div>
+        <div class="menuitem"><a href="/destination?provider_type={{ type }}&destination={{destination}}">{{ type }}</a></div><div class="separator">|</div>
         	{% endfor %} 
 
      {% endif %}   
@@ -38,12 +38,13 @@
     
     </div>
     
-        <div id="language_menu" class="ddown">{% filter upper %}
-        {{selected_language}} {% endfilter %}
+        <div id="language_menu" class="ddown">
+            <img src="/static/images/flags/{{selected_language}}.ico" />
             <ul> 
                 {% if other_languages %}
                     {% for other_language in other_languages %}
                      <li onClick="reload_with_new_par('{{ other_language }}')" >{{ other_language }}</li>
+                     
                     {% endfor %}
                 {% endif %}
             </ul>
