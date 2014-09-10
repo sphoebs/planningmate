@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/css/pmstyle.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/admin.css" />
+<title>Planningmate: Admin Interface</title>
+
+</head>
+
+<body>
+
+<header>
+
+	{% include 'headerwithmenu.html' %}
+	
+
+</header>
+
+<section class="adminsection">
+    <div class="leftmenu">
+    
+        <li><a href="/admin?config_action=add_provider">Add new providers</a></li>  
+        <li><a href="/admin?config_action=view_providers">View providers</a></li> 
+    
+    </div>
+    <div class="rightcontent">
+        <p>
+        
+        {% if admin_action == 'add_provider' or  admin_action=='edit_provider' %} 
+        
+            {% include 'forms/provider_entry.html' %}
+        
+        {% elif admin_action == 'view_providers' %}
+        
+            {% include 'view_providers.html' %}
+        
+        {% endif %}
+        
+
+    </div>
+
+</section>
+
+</body>
+</html>

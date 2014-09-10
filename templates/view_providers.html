@@ -1,0 +1,12 @@
+
+
+{% if providers %}
+
+Providers [{{ count }} found]:
+{% for provider in providers %}
+        	<option value="{{ provider.name }}">
+ {% endfor %}
+ 
+  {% else %}
+ 	No providers here
+  {% endif %}

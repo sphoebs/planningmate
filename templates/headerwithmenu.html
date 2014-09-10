@@ -1,0 +1,69 @@
+
+
+
+  <nav>
+    <div id="types_menu">
+    
+    {% if destination %}
+        <ul>
+          	{% for type in provider_types %}
+           	 <li><a href="/destination?provider_type={{ type }}&destination={{destination}}">{{ type }}</a></li>
+        	{% endfor %} 
+        
+		</ul>
+     {% endif %}   
+        
+     </div>
+      
+	  <div id="login_menu" class="ddown">
+            {% if user %} 
+             {{ user.first_name }} &#x25bc;
+            
+            <ul> 
+               	{% if user.isAdmin() %}
+            	    <li><a href="/admin">Admin menu</a></li> 
+                {% endif %} 
+                 <li><a href="/favorites"> Favorites </a> </li>
+                 <li><a href="/plans"> Plans </a> </li>
+                 {% if user.isPlanner() %}
+            	    <li><a href="/customers"> Customers </a> </li>
+                {% endif %} 
+        
+                <li><a href="/logout"> logout </a> </li>
+            </ul>
+
+            {% else %} 
+           	 <a href="{{login_url}}"> google login</a><br>
+            {% endif %}
+    
+    </div>
+    
+    <div id="language_menu" class="ddown">
+    {{selected_language}} &#x25bc;
+        <ul> 
+        	{% if other_languages %}
+                {% for other_language in other_languages %}
+                 <li onClick="reload_with_new_par('{{ other_language }}')" >{{ other_language }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+
+<script>
+function reload_with_new_par(l) {
+	var url = window.location.href;
+	 
+	if (url.indexOf('lang=') >-1) {	
+
+		url=url.replace('lang={{ selected_language }}','lang='+l); 
+		
+	} else if (url.indexOf('?') > -1){
+	   url += '&lang='+l;
+	} else{
+	   url += '?lang='+l;
+	}
+	window.location.href = url;
+}
+</script>
+
+</nav>

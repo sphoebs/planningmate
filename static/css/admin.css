@@ -1,0 +1,63 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* admin section */
+
+.adminsection {
+	height: calc(100% - 4em);
+	
+	display:block;
+	padding-bottom:4em;
+}
+
+
+.adminsection  div {
+	
+	height:100%;
+	padding: 0 0;
+	
+}
+
+.adminsection .leftmenu {
+	background-color: pink;
+	width: 20%;
+	float:left;
+}
+.adminsection .rightcontent {
+	background-color: white;
+	width: 75%;
+	float: right;
+
+}
+
+.pmbutton{
+height:3em;
+font-size:large;	
+}
+
+.adminform input {
+display:block;
+}
+
+.adminform textarea {
+display:block;
+}
+
+.data_entry_block.language_entry {
+border: 3px solid pink;
+margin-bottom: 1em;
+display:inline-block;
+
+}
+
+
+.data_entry_block {
+border: 3px solid blue;
+margin-bottom: 1em;	
+display: block;
+}
+
+.data_entry_block span {
+	font-weight:bold;
+	display: block;
+}

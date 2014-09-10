@@ -1,0 +1,351 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+.blue {
+  color: #55acee; 
+}
+
+.blue_border {
+	border: 1px solid #55acee; 
+}
+
+html {
+	height:100%;
+	
+}
+
+body {
+	height:inherit;
+	margin:0 0;
+	font-family: Avenir Next, Helvetica, Times, sans-serif;
+}
+
+
+header {
+	background:none;
+	opacity:.7;
+	height: 2.5em;
+	padding-top:0.5em;
+	margin: 1em 1em 0 1em;
+}
+
+.logo {
+	height: 2.8em;
+	position:absolute;
+	margin-left: 38%;
+	right:38%;
+	margin-top: -0.3em;	
+	padding: 0;
+
+}
+
+
+/* menus*/
+
+.menu li {
+list-style: none;	
+}
+
+
+
+nav ul {
+	list-style: none;
+	margin: 0; 
+    padding: 0;
+}
+
+nav li {
+	list-style: none;
+	float: left;	
+	margin-right: 2em;
+}
+
+#login_menu {
+	float:right;
+	margin-right: 2em;
+	width: 8em;
+	text-align:right;
+}
+
+#language_menu {
+	float:right;
+	margin-right: 2em;
+	display: inline;
+	width:3em;	
+}
+
+.ddown ul li {
+	display: none;
+	float:right;
+	margin-right: 1em;
+	clear:both;
+}
+
+.ddown:hover  {
+	background-color:white;	
+}
+
+.ddown:hover li {
+	display: block;	
+}
+
+.ddown li:hover {
+	background-color: #3FE6F2;
+}
+
+
+/* landing */
+#landing_body {
+	background-image: url('/static/images/wedding_gowns_1.jpg');
+	background-size:cover;
+	background-clip:content-box;
+	
+	
+}
+
+
+#landingmain {
+	
+	background-size:cover;
+}
+
+
+#landingmain form {
+	position: absolute;
+	bottom:1.5em;
+	left: 4em;
+	right:4em;
+	width: 80%;
+
+	
+	
+	background:white;
+	opacity:0.6;
+	font-size: 180%;
+	font-weight:bold;
+
+}
+
+#landingmain span {
+	
+	float:left;
+	margin:1em 0 0.5em 0;
+	height:1.5em;
+	padding-right: 1em;
+	padding-left: 1em;
+
+}
+
+#landingmain form input {
+	
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed";
+	font-size:inherit;
+	height:1.3em;
+	margin:1em 0 0.5em 0;
+}
+
+#landingbutton {
+	position:relative;
+	left:1em;
+	top:2px;
+	background:none;
+	cursor: pointer;
+  border-radius: 5px;
+  border:1px solid grey;
+  
+}
+
+#landingbutton:hover {
+background: #55acee;	
+}
+
+
+
+#landingmain datalist {
+	font-family: inherit;	
+}
+
+
+/* destination */
+
+
+
+
+.destination {
+	width: 40%;
+	height:1.5em;
+	opacity:1;
+	display: inline-block;
+	font-size: 100%;
+	font-family: inherit;
+	margin:1em 0 0.5em 0;	
+	float: left;
+	padding-right: 1em;
+}
+
+
+.inline_menu {
+	position:absolute;
+	right:2em;
+}
+
+.inline_button {
+	width: 3em;
+	display: inline-block;
+}
+
+.button {
+	width: 7em;
+	height:1em;
+	font-size: 120%;
+	margin:1em 0 0.5em 0;
+	background:none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 130%;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  float:left;
+	padding-left: 20%;
+	
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed";
+	border: 2px #55acee solid;
+	text-align:left;
+	padding:0;
+	
+}
+
+
+
+/* MAIN */
+
+
+
+.main  {
+	height: calc(100% - 4em);
+	/*border: 1px blue solid;*/
+	
+}
+
+.provider_main {
+height: 36em;	
+background-color: #62A2CF;
+padding:1em 0;
+/*border: 2px solid yellow;*/
+background:url('/static/images/light_grey.png'); 
+margin-bottom:2em;
+
+}
+
+.provider_header {
+font-size:x-large;
+height: 1.5em;
+padding:	 1em 0 1em 1em;
+/*border: 1px solid white;*/
+border:1px solid #0D2A3E;	
+
+margin-bottom: 1em;
+width:90%;
+margin-left:5%;
+box-shadow: 10px 10px 5px #0D2A3E;
+
+}
+
+
+
+.provider_name {
+	float: left;
+}
+
+
+.provider_menu {
+	float:right;
+	margin-right:1em;
+}
+
+.provider_menu  div {
+border: 2px solid white;
+display: inline-block;
+width:2em;
+text-align:center;
+}
+
+.provider_menu a {
+	text-decoration:none;	
+}
+
+.provider_menu  div:hover {
+cursor:pointer;
+background:	grey;
+}
+
+
+
+.provider_images_and_info {
+	/*border: 5px solid purple;*/
+	height: 30em;
+}
+
+.provider_images {
+	height:90%;
+	width: 55%;
+	float: left;
+	/*display: block;
+	background-image: url('http://www.weddinggownsavenue.com/gallery/disney-wedding-gowns/disney_wedding_gowns_1.jpg');*/
+	/*background-image: url('http://weddings.garretthubbard.com/wp-content/uploads/2013/12/dc-wedding-photographers-umbrella-wedding-rain.jpg');*/
+		/*background-image: url('/static/images/rain.png'); */
+	background-size:cover;
+	box-shadow: 10px 10px 5px #0D2A3E;
+}
+
+.provider_info {
+	float:right;
+	height:90%;
+	width: 40%;
+	margin-left:2em;
+	box-shadow: 10px 10px 5px #0D2A3E;
+}
+
+.provider_images img {
+position: relative;
+bottom: 8px;	
+
+}
+
+.provider_images .previous {
+
+left: 15%;
+cursor:pointer;
+}
+
+.provider_images .next {
+cursor:pointer;
+left: 25%;
+}
+
+
+
+footer {
+background:url('/static/images/footer-texture.jpg')	;
+
+	min-height: 6em;
+	background-color: grey;
+	color:white;
+}
+
+
+.footermenu li {
+display: inline;
+padding-right: 1em;
+}
+
+footer div {
+padding-top: 2em;
+margin-left: 40%	;	
+}
+
+

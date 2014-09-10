@@ -1,0 +1,126 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<form class="adminform" id="addprovider" action="/admin/create_provider" method="post">
+<input type="hidden" value="add_provider" name="form_type" />
+    
+    
+    <div class="data_entry_block">
+    <span>Basic info </span>
+    
+    Destination (select one):
+        <input list="destinations" name="destination" id="destinput">
+        <datalist id="destinations">
+            {% for destination in destinations %}
+                <option value="{{ destination }}">
+            {% endfor %}
+        </datalist>
+    
+    Provider Type (select one):
+        <input list="provider_types" name="provider_type" id="typeinput">
+        <datalist id="provider_types">
+            {% for provider_type in provider_types %}
+                <option value="{{ provider_type }}">
+            {% endfor %}
+        </datalist>
+
+	ID (a short string, no spaces, to be used as part of URL, such as "VillaOlmo")
+  		<input name="provider_id" type="text" id="idinput">
+            
+    </div>
+    <div class="data_entry_block language_blocks" >  
+    <span>Language-Specific info </span>     
+		{% for language in languages_list %}
+        <div class="language_entry data_entry_block">
+        	Language: {{ language }}<br>
+
+        	Name* ({{ language }})
+  			<input name="name__{{ language }}"  type="text" placeolder="XXX">
+            Description ({{ language }})
+   			<textarea name="description__{{ language }}" form="addprovider"></textarea>
+              PM opinion ({{ language }})
+   <textarea name="pmopinion__{{ language }}" form="addprovider"></textarea>
+            PDF document with description ({{ language }})
+   <input name="pdfdescr__{{ language }}" type="url">
+         
+		</div>
+  {% endfor %}
+  </div>
+  
+   <div class="data_entry_block" >  
+    <span>Contact info </span>     
+   Email
+   <input name="contact_email" placeholder="Contact Email" type="email">
+   URL
+   <input name="url" type="url" placeholder="enter URL">
+   
+    Phone number
+   <input name="phone"  type="text" placeholder="+39 1234567890" >
+   
+      Address
+   <textarea name="address" form="addprovider">Enter text here...</textarea>
+   
+   Geolocation X 
+     <input type="number" name="x-coord" >
+   Geolocation Y 
+     <input type="number" name="y-coord" >
+   </div>
+  
+   <div class="data_entry_block" >  
+    <span>Quality and price </span>     
+   Rating (0..10) higher is better
+     <input type="number" name="rating" min="1" max="10">
+ 	Price range (free text)
+   <input name="pricerangetext"  type="text" placeholder="+39 1234567890" >
+	
+    Price class (0..5), 5 being very expensive
+     <input type="number" name="price_class" min="1" max="5">
+
+   </div>
+   
+ 
+  
+ <div class="data_entry_block" > 
+	 <span>Pictures</span>  
+
+
+   Picture URLs (separate with newline)
+   <textarea name="pictures" form="addprovider">Enter URLs here...</textarea>
+   
+   
+
+</div>
+
+<div class="data_entry_block" > 
+	 <span>Offers and bookings</span>  
+
+
+   
+   Packages (separate with newline)
+   <textarea name="packages" form="addprovider">Enter URLs here...</textarea>
+   
+  
+
+</div>
+<input type="submit" value="addprovider" class="pmbutton">
+</form>
+
+<script>
+
+
+$(document).ready(function(){
+
+	$("#destinput").val("{{ destination }}");
+	
+	{% if provider %} 
+	
+	$("#typeinput").val("{{ provider.provider_type }}");
+	
+	$("#idinput").val("{{ provider.provider_id }}");
+	
+	{% endif %} 
+
+});
+
+
+</script>

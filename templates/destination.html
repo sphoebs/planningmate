@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/css/pmstyle.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+
+<title>Planningmate: Destination {{ destination }}</title>
+
+</head>
+
+<body>
+
+<header>
+
+	{% include 'headerwithmenu.html' %}
+
+</header>
+
+<section ng-app="" ng-controller="prepareImages">
+
+
+
+    {% if not centerfold_providers %}
+        <div class="centerfold_empty">
+        	No provider for this location
+        </div>
+        
+    {% else %}
+    	
+        
+        
+        {% for provider in  centerfold_providers %}
+        <div class="provider_main" id="provider_{{loop.index-1}}">
+    		
+            <div class="provider_header">
+          
+        		<div class="provider_name"> {{ provider.name[selected_language] }}</div>
+        
+        
+            
+                <div class="provider_menu">
+					  {% if user %}
+                    <div class="inline_button">
+                        <a href="/admin?config_action=add_provider">F</a>
+                     </div>
+                     <div class="inline_button">
+                        <a href="/admin?config_action=add_provider">S</a>
+                     </div>
+                    
+                    {% if user.isAdmin() %}
+                        <div class="inline_button">
+                            <a href="/admin?config_action=add_provider">+</a>
+                         </div>
+                        <div class="inline_button">
+                            <a href="/admin?config_action=edit_provider&provider_id={{provider.provider_id}}">E</a>
+                        </div>
+                        <div class="inline_button">
+                         <a href="/admin?config_action=delete_provider&provider_id={{provider.provider_id}}">D</a>
+                        </div>
+                    {% endif %}
+                 {% endif %}
+                </div>
+      
+        	</div>
+        
+        
+            <div class="provider_images_and_info">
+                
+                <div class="provider_images" 
+                id ="provider_images_{{loop.index-1}}" 
+                ng-style="imgstyle[{{loop.index-1}}]"
+                
+                ng-style="{'background-color':'blue'}"
+                >rerewrew
+                
+                <img class="previous" src="/static/images/previous.png" ng-click="previousimage({{loop.index-1}})">
+                <img class="next" src="/static/images/next.png" ng-click="nextimage({{loop.index-1}})">
+                
+    
+                </div>
+        
+                <div class="provider_info blue_border">
+                    Right
+                    Provider: {{provider.provider_id}}
+                       {{ provider.name[selected_language] }}
+                   <br> {{ provider.description[selected_language] }}
+                    
+                   <br> Email: {{ provider.contact_email }}
+                    <br>Phone: {{ provider.phone }}
+                    <br>Address: {{ provider.address }}
+                    <br>rating: {{ provider.rating }}
+                    <br>comment: {{ provider.comment }}
+                    <br>pricerange: {{ provider.comment }}
+                    <br>url: {{ provider.url }}
+                   
+                    
+                   
+                </div>
+                </div>
+             </div>
+      
+		</div> <!-- end provider main -->
+         {% endfor %}
+        
+	
+              
+    {% endif %}   
+</section>
+
+
+{% include 'footer.html' %}
+
+<script>
+$(document).ready(function(){
+	
+    /*	var images = [];
+	
+	{% for p in centerfold_providers  %}
+	
+	images[{{loop.index-1}}] = {{p.pictures}};
+	$("#provider_images_{{loop.index-1}}").css("background-image","'url(" + images[{{loop.index-1}}][1] + ")");
+	{% endfor %}
+*/
+	
+	
+	
+  $("#previous").click(function(){
+    $(".provider_images").fadeOut();
+  });
+});
+
+
+</script>
+
+<script>
+function prepareImages($scope) {
+    
+    
+$scope.images = [];
+	$scope.imgstyle = [];
+	$scope.imgindex = [];
+    
+    {% for pr in  centerfold_providers %}
+        console.log('{{pr.provider_id}}');
+        var p={{loop.index-1}};
+        $scope.images[p] = new Array();
+    //console.log($scope.images[p][0]);
+        $scope.imgindex[p] = 0;
+    
+    
+        {% for pic in pr.pictures %}
+
+            $scope.images[p][{{loop.index-1}}]='{{pic}}';
+         
+         //	$scope.imgstyle = {'background-image' : 'url(\'/static/images/rain.png\')' };	
+		//$scope.images[{{loop.index-1}}] = '{{imglist}}';
+         
+        
+         {% endfor %}
+         
+		if  ( $scope.images[p][0]==undefined) {
+			$scope.images[p][0] = "/static/images/rain.png";
+           
+		}
+       
+         $scope.imgstyle[p] = { 'background-image' : 'url(\'' + $scope.images[p][0] + '\')' };	
+        
+
+    {% endfor %}
+    
+
+    
+    $scope.nextimage = function(id) {
+        if (  $scope.images[id][$scope.imgindex[id]+1]!==undefined  ) {
+            console.log('more');  
+            $scope.imgindex[id]++;
+             $scope.imgstyle[id] = { 'background-image' : 'url(\'' + $scope.images[id][$scope.imgindex[id]] + '\')' };	
+        };
+    
+    };
+    
+         $scope.previousimage = function(id) {
+             console.log($scope.imgindex[id]);
+        if (  $scope.imgindex[id] > 0  ) {
+            $scope.imgindex[id]--;
+            $scope.imgstyle[id] = { 'background-image' : 'url(\'' + $scope.images[id][$scope.imgindex[id]] + '\')' };	
+        }   ;   
+        
+    };
+    
+    
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Planningmate: Plan your wedding now</title>
+</head>
+
+<body>
+
+    <header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="">Applications</a>
+                <ul>
+                        <li><a href="">Lifeshare</a></li>
+                        <li><a href="">Gymcentral</a></li>						
+                        <li><a href="#">PerTE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="login">
+    
+    </div>
+    <div class="language">
+    	{{language['current language']}}
+    </div>
+    </header>
+    
+    
+    
+    Hello {{ user.first_name }}
+    
+    
+      <a href="https://accounts.google.com/o/oauth2/auth?access_type=online&
+scope=profile%20email&state=%2Fprofile&redirect_uri={{ entry_url }}auth%2Fgoogle%2Fcallback&response_type=code&client_id=213857599581-1sgf00gpu9uledmfoto8l569bcks29gc.apps.googleusercontent.com&approval_prompt=auto"> google link</a>
+    
+    
+    
+
+    <a href="{{login_url | safe}}"> google users login </a><br>
+    
+    <a href="logout/"> users logout </a>
+    
+    
+    {% if logged_in %} LOGGEDIIIIINNNNNNNNNNNNN 
+    
+    {% elif not (logged_in) %} NOT logged in
+    {% endif %}
+    
+
+    
+</body>
+</html>

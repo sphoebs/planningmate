@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Planningmate: Plan your wedding now</title>
+
+<link rel="stylesheet" type="text/css" href="/static/css/pmstyle.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+
+<body id="landing_body">
+
+    <header>
+    <img class="logo" src="/static/images/logo.png" alt="Planningmate">
+	<!--{% include 'headerwithmenu.html' %}-->
+    </header>
+    
+    <section class="main" id ="landingmain">
+
+            <FORM action="/takemethere" method="post">
+            	<span>Plan my wedding in: </span> 
+                <input class="destination" list="wedding_destinations" name="wedding destination" 
+                placeholder=	"select a destination" autocomplete="off" id="destination_input">
+                	<datalist id="wedding_destinations">
+                    {% for destination in destinations %}
+                        <option value="{{ destination }}">
+                     {% endfor %} 	
+                	</datalist>
+            	<input type="submit" value="Go" id="landingbutton" >
+        	</FORM>
+
+    </section>
+    
+    <section class="footercards">
+ <!--
+    <div> sample destination 1
+    </div>
+     <div> sample destination 2
+    </div>
+     <div> sample destination 3
+    </div>
+     -->
+    </section>
+    
+    {% include 'footer.html' %}
+<script>
+	$(document).ready(function(){
+	  $("#destination_input").val("{{destinations[0]}}");
+	});
+</script>
+</body>
+</html>
