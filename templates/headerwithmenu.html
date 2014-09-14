@@ -17,37 +17,35 @@
       <div id="login_lang_menu" class="menu">
           <div id="login_menu" class="menu ddown">
             {% if user %} 
-             {{ user.first_name }} &#x25bc;
-            
-            <ul> 
+             {{ user.first_name }}
                	{% if user.isAdmin() %}
-            	    <li><a href="/admin">Admin menu</a></li> 
+                <li><a href="/admin">Admin menu</a></li> 
                 {% endif %} 
                  <li><a href="/favorites"> Favorites </a> </li>
                  <li><a href="/plans"> Plans </a> </li>
                  {% if user.isPlanner() %}
-            	    <li><a href="/customers"> Customers </a> </li>
+                <li><a href="/customers"> Customers </a> </li>
                 {% endif %} 
         
                 <li><a href="/logout"> logout </a> </li>
-            </ul>
+        
 
             {% else %} 
-           	 <a href="{{login_url}}"> Google Login</a><br>
+           	 <div><a href="{{login_url}}"> Google Login</a></div>
             {% endif %}
     
     </div>
     
         <div id="language_menu" class="ddown">
-            <img src="/static/images/flags/{{selected_language}}.ico" />
-            <ul> 
-                {% if other_languages %}
-                    {% for other_language in other_languages %}
-                     <li onClick="reload_with_new_par('{{ other_language }}')" >{{ other_language }}</li>
-                     
-                    {% endfor %}
-                {% endif %}
-            </ul>
+            <img class="hoverbkg" src="/static/images/flags/{{selected_language}}.ico" />
+            {% if other_languages %}
+                {% for other_language in other_languages %}
+
+                    <img class="hoverbkg"
+                         onClick="reload_with_new_par('{{ other_language }}')"   
+                         src="/static/images/flags/{{other_language}}.ico" />
+                {% endfor %}
+            {% endif %}
         </div>
 </div>
       
